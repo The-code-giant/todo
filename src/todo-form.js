@@ -11,13 +11,11 @@ const TodoForm = ({ currentTask, setCurrentTask, handleAddTask, completeTasks, r
               type="text"
               placeholder="task description"
               value={currentTask ? currentTask.description : ""}
-              onChange={event =>
-                setCurrentTask({
-                  complete: false,
-                  description: event.target.value,
-                  id: Math.round(Math.random() * 9999999999)
-                })
-              }
+              onChange={event => setCurrentTask({
+                complete: false,
+                description: event.target.value,
+                id: Math.round(Math.random() * 9999999999)
+              })}
             />
           </p>
           <p className="control">

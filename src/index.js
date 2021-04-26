@@ -26,8 +26,11 @@ function App() {
   useEffect(() => {
 
     const localData = getData();
-    if (localData && localData.length) {
-      setTasks(localData);
+
+    if (localData && localData.length && Array.isArray(localData)) {
+
+      setTasks(localData.filter(el => el != null));
+      
     }
 
   }, []);
@@ -74,7 +77,6 @@ function App() {
 
       return item;
     });
-    console.log("Completed task", tasks);
     setTasks(newTasks);
     persistData(newTasks);
   };
@@ -87,6 +89,8 @@ function App() {
   }
 
   const handleAddTask = () => {
+
+    if(!currentTask) return;
 
     const newTasks = [...tasks, currentTask];
     setTasks(newTasks);

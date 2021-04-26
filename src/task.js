@@ -31,19 +31,19 @@ const Task = ({ task, taskIndex, addSelection, handleRemoveTask, handleCompleteT
       </span>
       <span className="icon has-text-info">
         <FontAwesomeIcon
-          icon={task.complete ? "redo-alt" : "check"}
+          icon={task?.complete ? "redo-alt" : "check"}
           onClick={() => handleCompleteTask(taskIndex)}
-          style={{ cursor: "pointer", color: task.complete ? "#f00" : "" }}
+          style={{ cursor: "pointer", color: task?.complete ? "#f00" : "" }}
         />
       </span>
       <span
         style={{
-          textDecoration: task.complete ? "line-through" : "none",
+          textDecoration: task?.complete ? "line-through" : "none",
           paddingLeft: "8px",
           textTransform: "uppercase"
         }}
       >
-        {task.description}
+        {task?.description}
       </span>
       <span className="icon has-text-info bars-right">
         <FontAwesomeIcon icon="bars" style={{ color: "#ddd" }} />
